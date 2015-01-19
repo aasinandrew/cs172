@@ -20,7 +20,8 @@ public final class Stream {
             @Override
             public void onStatus(Status status) {
             	User user = status.getUser();
-                String username = status.getUser().getScreenName();
+            	if(user.isGeoEnabled()) {
+            	String username = status.getUser().getScreenName();
                 System.out.println("@" + username);
                 Date date = status.getCreatedAt();
                 System.out.println(date);
@@ -28,6 +29,8 @@ public final class Stream {
                 System.out.println(profileLocation);
                 String content = status.getText();
                 System.out.println(content +"\n");
+            	}
+                
             }
 
             @Override
